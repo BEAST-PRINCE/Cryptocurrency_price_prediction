@@ -1,60 +1,101 @@
-# Cryptocurrency Price Predictor
+# 🚀 Cryptocurrency Price Predictor
 
-A Python application with a Tkinter Graphical User Interface (GUI) that uses deep learning (LSTM neural networks) to predict future cryptocurrency prices based on historical data.
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python&logoColor=white)](https://www.python.org/)
+[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.0%2B-orange?logo=tensorflow&logoColor=white)](https://www.tensorflow.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## Table of Contents
-- [Features](#features)
-- [Project Structure](#project-structure)
-- [Installation](#installation)
-- [Usage](#usage)
-- [How it Works](#how-it-works)
+A sophisticated deep learning application built with **LSTM (Long Short-Term Memory)** neural networks to forecast future cryptocurrency prices. Featuring a clean Tkinter-based GUI, real-time data integration, and highly customizable hyperparameters.
 
-## Features
-- **Data Fetching:** Automatically downloads historical cryptocurrency data via Yahoo Finance.
-- **Customizable Hyperparameters:** Users can define the number of prediction days, future days to forecast, training epochs, batch sizes, learning rate, and optimizer choices directly from the GUI.
-- **Deep Learning Model:** Utilizes a multi-layer Long Short-Term Memory (LSTM) neural network built with TensorFlow/Keras.
-- **Metrics Dashboard:** Calculates Evaluation metrics such as Mean Squared Error (MSE), Mean Absolute Error (MAE), Mean Absolute Percentage Error (MAPE), and overall Accuracy.
-- **Data Visualization:** Uses Matplotlib plotting to display Training Data, Actual Prices, Historical Predictions, and Future Price forecasts.
+![Project Preview](project_preview_mockup_1776577061311.png)
 
-## Project Structure
-The source code is divided cleanly into three core components:
+## ✨ Key Features
 
-1. `data_utils.py`: Contains functions to fetch data over the network and preprocess/scale datasets to be ML-ready.
-2. `model_utils.py`: Contains the logic for constructing the LSTM neural network architecture, compiling it, executing training loops, and calculating predictions/metrics.
-3. `app.py`: The entry point for the application. It constructs the interactive `tkinter` interface and orchestrates data from the util files.
+- 🔄 **Real-time Data:** Seamlessly fetches the latest historical data from **Yahoo Finance** via the `yfinance` API.
+- 🧠 **Deep Learning Core:** Utilizes a multi-layered **LSTM network** designed for time-series forecasting.
+- ⚙️ **Customizable Parameters:** Fine-tune your model directly from the UI:
+    - Prediction lag (lookback period)
+    - Future forecast horizon
+    - Training Epochs & Batch Size
+    - Optimizers (Adam, RMSprop, SGD, Adagrad)
+    - Learning Rates & Loss Functions
+- 📊 **Visual Analytics:** Interactive Matplotlib graphs showing training trends, actual vs. predicted prices, and future projections.
+- 📈 **Performance Metrics:** Real-time calculation of **Accuracy**, **MSE**, **MAE**, and **MAPE** to evaluate model reliability.
 
-## Installation
+## 🛠️ Built With
 
-Ensure you have Python 3.8+ installed on your system.
+*   **Backend:** Python 3.8+
+*   **Neural Networks:** TensorFlow / Keras
+*   **Data Processing:** NumPy, Pandas, Scikit-learn (MinMaxScaler)
+*   **Finance API:** yfinance
+*   **GUI:** Tkinter, tkcalendar
+*   **Visualization:** Matplotlib
 
-1. Clone or download this directory.
-2. It's recommended to create a virtual environment:
+## 📂 Project Structure
+
+```text
+Modular_Predictor/
+├── app.py              # Main GUI application & entry point
+├── data_utils.py       # Data fetching and preprocessing logic
+├── model_utils.py      # LSTM architecture and training routines
+├── requirements.txt    # Project dependencies
+└── README.md           # Documentation
+```
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Python 3.8 or higher installed.
+
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/your-username/cryptocurrency-price-prediction.git
+   cd cryptocurrency-price-prediction
+   ```
+
+2. **Create a virtual environment (Recommended):**
    ```bash
    python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   # On Windows:
+   venv\Scripts\activate
+   # On macOS/Linux:
+   source venv/bin/activate
    ```
-3. Install the required dependencies:
+
+3. **Install dependencies:**
    ```bash
    pip install -r requirements.txt
    ```
 
-## Usage
+## 🎮 Usage
 
-Run the main application file from your terminal:
-
+Launch the application:
 ```bash
 python app.py
 ```
 
-1. Select your target **Cryptocurrency** (BTC, ETH, etc.) and Base **Currency** (USD, INR, etc.).
-2. Pick a **Start Date** for the historical data. (End date is always today).
-3. Adjust **Model Parameters** if desired, or leave them as default.
-4. Click **Predict** and wait for the model to download data and train.
-5. The future prices will populate in the table, and a new window will open displaying the graphical results.
+1. **Configure Search:** Select your cryptocurrency (e.g., BTC, ETH) and target currency (USD, INR).
+2. **Select Date:** Pick a starting point for historical data analysis.
+3. **Adjust Parameters:** (Optional) Modify the SLTM hyperparameters for experimentation.
+4. **Predict:** Hit the **Predict** button and watch the model train and forecast in real-time.
 
-## Built With
-- **TensorFlow** & **Keras** - For building and training the LSTM model
-- **scikit-learn** - For data normalization (`MinMaxScaler`) and calculating metrics
-- **yfinance** - For pulling realtime financial data
-- **matplotlib** - For graphing results
-- **tkinter** & **tkcalendar** - For the interactive desktop GUI
+## 📝 Analysis & Methodology
+
+The model employs a **MinMaxScaler** to normalize historical closing prices between 0 and 1, ensuring stable LSTM training. The architecture focuses on capturing long-term dependencies in price movements, which is critical for the volatile crypto market.
+
+> [!NOTE]
+> Cryptocurrency markets are highly volatile. This tool is for educational purposes and should not be used as financial advice.
+
+## 🤝 Contributing
+
+Contributions are welcome! If you'd like to improve the model architecture or add new features:
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+Distributed under the MIT License. See `LICENSE` for more information.
